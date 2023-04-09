@@ -24,7 +24,7 @@ export default function SearchExercises({
     fetchExerciseData();
   }, []);
 
-  console.log(bodyParts);
+  //console.log(bodyParts);
 
   const handleSearch = async () => {
     if (search) {
