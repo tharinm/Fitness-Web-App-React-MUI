@@ -8,7 +8,12 @@ import ExercieCard from "./ExercieCard";
 
 //The Pagination component enables the user to select a specific page from a range of pages.
 
-export default function Exercises({ exercise, bodyPart, setExercise, setBodyPart }) {
+export default function Exercises({
+  exercise,
+  bodyPart,
+  setExercise,
+  setBodyPart,
+}) {
   //  console.log("This is exerci" + JSON.stringify(exercise));
   const [currentPage, setCurrentPage] = useState(1);
   const exercisePerPage = 9;
@@ -25,6 +30,29 @@ export default function Exercises({ exercise, bodyPart, setExercise, setBodyPart
     setCurrentPage(value);
     window.scroll({ top: 1800, behavior: "smooth" });
   };
+
+
+   useEffect(() => {
+     const fetchExercisesData = async () => {
+       let exercisesData = [];
+
+       if (bodyPart === "all") {
+         exercisesData = await fetchData(
+           "https://exercisedb.p.rapidapi.com/exercises",
+           exerciseOption
+         );
+       } else {
+         exercisesData = await fetchData(
+           `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
+           exerciseOption
+         );
+       }
+       console.log('help')
+       setExercise(exercisesData);
+     };
+
+     fetchExercisesData();
+   }, [bodyPart]);
 
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} p="20px">
