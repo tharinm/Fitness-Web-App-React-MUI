@@ -3,6 +3,11 @@ import { Stack, Typography } from "@mui/material";
 import icon from "../assets/icons/gym.png";
 
 export default function BodyPart({ item, setBodyPart, bodyPart }) {
+
+  const bodypartSet = () => {
+    setBodyPart(item);
+    window.scrollTo({ top: 1800, left: 100, behavior: "smooth" });
+  }
   return (
     <Stack
       type="Button"
@@ -10,7 +15,7 @@ export default function BodyPart({ item, setBodyPart, bodyPart }) {
       justifyContent="center"
       className="bodyPart-card"
       sx={{
-       // borderTop: bodyPart === item ? "4px solid #FF2625": '',
+        // borderTop: bodyPart === item ? "4px solid #FF2625": '',
         background: "#fff",
         borderBottomLeftRadius: "20px",
         width: "270px",
@@ -18,10 +23,7 @@ export default function BodyPart({ item, setBodyPart, bodyPart }) {
         cursor: "pointer",
         gap: "47px",
       }}
-      onClick={() => {
-       // setBodyPart(item);
-        //window.scrollTo({ top: 1800, behavior: "smooth" });
-      }}
+      onClick={bodypartSet}
     >
       <img
         src={icon}

@@ -8,6 +8,8 @@ import Exercises from "../components/Exercises";
 export default function Home() {
   const [bodyPart, setBodyPart] = useState("all");
   const [exercise, setExercise] = useState([]);
+
+  console.log(bodyPart)
   return (
     <Box>
       <HeroBanner />
@@ -20,6 +22,7 @@ export default function Home() {
         setExercise={setExercise}
         exercise={exercise}
         bodyPart={bodyPart}
+        setBodyPart={setBodyPart}
       />
     </Box>
   );

@@ -8,22 +8,24 @@ import ExercieCard from "./ExercieCard";
 
 //The Pagination component enables the user to select a specific page from a range of pages.
 
-export default function Exercises({ exercise, bodyPart, setExercise }) {
-//  console.log("This is exerci" + JSON.stringify(exercise));
+export default function Exercises({ exercise, bodyPart, setExercise, setBodyPart }) {
+  //  console.log("This is exerci" + JSON.stringify(exercise));
   const [currentPage, setCurrentPage] = useState(1);
   const exercisePerPage = 9;
 
   const indexOfLastExercise = currentPage * exercisePerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisePerPage;
-  const currentExercises=exercise.slice(indexOfFirstExercise,indexOfLastExercise)
+  const currentExercises = exercise.slice(
+    indexOfFirstExercise,
+    indexOfLastExercise
+  );
 
   //this e and value passed when button click default by MUI
-  const paginate = (e,value) => {
+  const paginate = (e, value) => {
     setCurrentPage(value);
-    window.scroll({top:1800,behavior:'smooth'})
+    window.scroll({ top: 1800, behavior: "smooth" });
+  };
 
-  }
-  
   return (
     <Box id="exercises" sx={{ mt: { lg: "110px" } }} p="20px">
       <Typography
