@@ -25,6 +25,8 @@ export default function ExerciseDetails() {
         `${exerciseDbURL}/exercises/exercise/${id}`,
         exerciseOption
       );
+
+       console.log(exerciseDetailsData);
       setExeciseDetail(exerciseDetailsData);
       //console.log(exerciseDetailsData);
       const exerciseVideoData = await fetchData(
@@ -51,6 +53,7 @@ export default function ExerciseDetails() {
     fetchExerciseData();
   }, [id]);
 
+ 
   console.log(exerciseVideos);
 
   return (
