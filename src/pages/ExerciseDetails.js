@@ -10,6 +10,8 @@ import SimilarExercises from "../components/SimilarExercises";
 export default function ExerciseDetails() {
   const [execiseDetail, setExeciseDetail] = useState({});
   const [exerciseVideos, setExerciseVideos] = useState([]);
+  const [targetMuscleExercises, setTargetMuscleExercises] = useState([]);
+  const [equipmentExercises, setEquipmentExercises] = useState([]);
 
   const { id } = useParams();
 
@@ -32,12 +34,24 @@ export default function ExerciseDetails() {
 
       //pass the videos
       setExerciseVideos(exerciseVideoData.contents);
+
+      const targetMuscleExercisesData = await fetchData(
+        `${exerciseDbURL}/exercises/target/${exerciseDetailsData.target}`,
+        exerciseOption
+      );
+      setTargetMuscleExercises(targetMuscleExercisesData);
+
+      const equimentExercisesData = await fetchData(
+        `${exerciseDbURL}/exercises/equipment/${exerciseDetailsData.equipment}`,
+        exerciseOption
+      );
+      setEquipmentExercises(equimentExercisesData);
     };
 
     fetchExerciseData();
   }, [id]);
 
-  console.log(exerciseVideos)
+  console.log(exerciseVideos);
 
   return (
     <Box>
@@ -49,7 +63,7 @@ export default function ExerciseDetails() {
       />
       {/* <ExerciseVideos /> */}
       {/* <SimilarExercises /> */}
-      <SimilarExercises />
+      <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
     </Box>
   );
 }
