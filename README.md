@@ -1,3 +1,12 @@
+## Fitness Web App Develop 
+
+This web application is built with React JS and utilizes RapidAPI to fetch data. Material UI is used for 
+styling to provide an appealing user interface. The purpose of the application is to help users find 
+exercises for specific body parts. Users can easily search for exercises and view the relevant information, 
+making it a convenient way for users to improve their fitness.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
