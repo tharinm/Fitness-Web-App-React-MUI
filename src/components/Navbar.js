@@ -26,7 +26,7 @@ export default function Navbar() {
           Home
         </Link>
         <a
-          href="#exercise"
+          href="exercise"
           style={{ textDecoration: "none", color: "#3a1212" }}
         >
           Exercises
