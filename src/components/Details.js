@@ -5,7 +5,7 @@ import TargetImage from "../assets/icons/target.png";
 import EquipmentImage from "../assets/icons/equipment.png";
 
 export default function Details({ exerciseDetail }) {
-  const { bodyPart, gifURL, name, target, equipment } = exerciseDetail;
+  const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail;
   const extraDetail = [
     {
       icon: BodyPartImage,
@@ -16,7 +16,7 @@ export default function Details({ exerciseDetail }) {
       name: target,
     },
     {
-      icon: equipment,
+      icon: EquipmentImage,
       name: equipment,
     },
   ];
@@ -26,7 +26,7 @@ export default function Details({ exerciseDetail }) {
       gap="60px"
       sx={{ flexDirection: { lg: "row" }, p: "20px", alignItems: "center" }}
     >
-      <img src={gifURL} alt={name} loading="lazy" className="detail-image" />
+      <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
       <Stack sx={{ gap: { lg: "35px", xs: "20px" } }}>
         <Typography variant="h3">{name}</Typography>
         <Typography variant="h6">
@@ -51,7 +51,9 @@ export default function Details({ exerciseDetail }) {
                 style={{ height: "50px", width: "50px" }}
               />
             </Button>
-            <Typography varient="h5" textTransform="capitalize">{item.name}</Typography>
+            <Typography varient="h5" textTransform="capitalize">
+              {item.name}
+            </Typography>
           </Stack>
         ))}
       </Stack>
